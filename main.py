@@ -53,7 +53,6 @@ class Monitor:
                     self.window.update()
             else:
                 for second in range(0, minutes * 3):
-                    print("sleep")
                     sleep(1)
                     self.window.update()
             self.window.update()
