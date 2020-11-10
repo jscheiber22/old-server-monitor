@@ -48,9 +48,14 @@ class Monitor:
 
             self.window.update() # Want update as often as possible
             if self.fastUpdate:
-                sleep((0.1 * minutes)) # 6 seconds
+                for second in range(0, minutes * 0.1):
+                    sleep(1) # 1 second per minutes * 0.1 (6)
+                    self.window.update()
             else:
-                sleep(3 * minutes)
+                for second in range(0, minutes * 3):
+                    print("sleep")
+                    sleep(1)
+                    self.window.update()
             self.window.update()
 
             if not skipMiner:
