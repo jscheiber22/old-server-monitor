@@ -40,6 +40,12 @@ class Monitor:
                     if not self.eth.isActive():
                         self.minerTitle.configure(foreground="hot pink")
                     self.avgHashLabel.configure(text=str(self.eth.getAverageHashrate()) + " MH/s")
+
+                    # Add to list of averages for average average hash rate :)
+                    f = open("/home/james/Documents/avgHash", "a+")
+                    f.write(str(self.eth.getAverageHashrate()) + "\n")
+                    f.close()
+
                     self.currHashLabel.configure(text=str(self.eth.getCurrentHashrate()) + " MH/s")
                 except:
                     print("Miner is most likely broken. Altering color as notice and stopping miner updates.")
